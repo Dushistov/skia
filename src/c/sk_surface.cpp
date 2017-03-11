@@ -419,6 +419,27 @@ void sk_canvas_draw_picture(sk_canvas_t* ccanvas, const sk_picture_t* cpicture,
     AsCanvas(ccanvas)->drawPicture(AsPicture(cpicture), matrixPtr, AsPaint(cpaint));
 }
 
+void sk_canvas_draw_color(sk_canvas_t *ccanvas, uint32_t color)
+{
+    AsCanvas(ccanvas)->drawColor(color);
+}
+
+void sk_canvas_draw_text(sk_canvas_t *ccanvas, const void* text, size_t byteLength, float x, float y, const sk_paint_t *cpaint)
+{
+    AsCanvas(ccanvas)->drawText(text, byteLength, x, y, *AsPaint(cpaint));
+}
+
+void sk_canvas_draw_line(sk_canvas_t *ccanvas, float x0, float y0, float x1, float y1, const sk_paint_t *cpaint)
+{
+    AsCanvas(ccanvas)->drawLine(x0, y0, x1, y1, *AsPaint(cpaint));
+}
+
+void sk_canvas_draw_arc(sk_canvas_t *ccanvas, const sk_rect_t *coval, float start_angle,
+			float sweep_angle, bool use_center, const sk_paint_t *cpaint)
+{
+    AsCanvas(ccanvas)->drawArc(AsRect(*coval), start_angle, sweep_angle, use_center, *AsPaint(cpaint));
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 sk_surface_t* sk_surface_new_raster(const sk_imageinfo_t* cinfo,

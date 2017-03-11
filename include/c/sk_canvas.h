@@ -154,6 +154,11 @@ SK_API void sk_canvas_draw_image_rect(sk_canvas_t*, const sk_image_t*,
 SK_API void sk_canvas_draw_picture(sk_canvas_t*, const sk_picture_t*,
                                    const sk_matrix_t*, const sk_paint_t*);
 
+SK_API void sk_canvas_draw_color(sk_canvas_t *canvas, uint32_t color);
+SK_API void sk_canvas_draw_text(sk_canvas_t *canvas, const void* text, size_t byteLength, float x, float y, const sk_paint_t *paint);
+SK_API void sk_canvas_draw_line(sk_canvas_t *canvas, float x0, float y0, float x1, float y1, const sk_paint_t *paint);
+SK_API void sk_canvas_draw_arc(sk_canvas_t *canvas, const sk_rect_t *oval,
+			       float start_angle, float sweep_angle, bool use_center, const sk_paint_t *paint);
 SK_C_PLUS_PLUS_END_GUARD
 
 #endif
